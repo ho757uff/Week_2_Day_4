@@ -59,15 +59,33 @@ end
 
 
 # --- q6
-# def sort_my_array_by_handle_size(journalists_array)
+def sort_my_array_by_handle_size(journalists_array)
+   sorted_array_by_handle_size = journalists_array.sort_by {|str| str.length}
   
+  return sorted_array_by_handle_size
+end
 
-  
-#   sorted_array_by_handle_size = temp_array
 
-#   return sorted_array_by_handle_size
-# end
+# --- q7
+def find_position_of_contact(journalists_array)
+  # name = "@epenser"
+  position_in_list = journalists_array.index {|name| name == "@epenser"}
 
+  return position_in_list
+end
+
+
+# --- q8
+def count_contacts_length(journalists_array)
+  possible_lengths = journalists_array.map{|word| word.length}
+  min = possible_lengths.min
+  max = possible_lengths.max
+
+  (min..max).each do |length|
+      nombre = journalists_array.count {|word| word.length == length}
+      nombre != 0 ? (puts "Le nombre de contacts dans notre array dont la longueur est égale à #{length} de caractères est de #{nombre} ") : false
+  end
+end
 
 def perform
 
@@ -77,13 +95,23 @@ def perform
   # puts journalists_array
   # puts journalists_array[0].length
 
-  puts "Il y a #{count_handles(journalists_array)} contacts dans notre array"
-  puts "Le contact le plus court dans notre array est : #{find_shortest_handle(journalists_array)}"
-  puts "Il y a #{count_handles_with_length_5(journalists_array)} contacts dont la longueur est égale à 5 caractères après le @"
-  puts "Il y a #{how_many_start_with_caps(journalists_array, character_to_find)} contacts qui ont un nom commençant par une majuscule après le @"
-  print "Voici la liste de nos contacts triés par ordre alphabétique : #{sort_my_array_alphabetical(journalists_array)}"
-  puts " "
-  # print sort_my_array_by_handle_size(journalists_array)
+  puts "Il y a #{count_handles(journalists_array)} contacts dans notre array\n\n"
+
+  puts "Le contact le plus court dans notre array est : #{find_shortest_handle(journalists_array)}\n\n"
+
+  puts "Il y a #{count_handles_with_length_5(journalists_array)} contacts dont la longueur est égale à 5 caractères après le @\n\n"
+
+  puts "Il y a #{how_many_start_with_caps(journalists_array, character_to_find)} contacts qui ont un nom commençant par une majuscule après le @\n\n"
+
+  print "Voici la liste de nos contacts triés par ordre alphabétique :\n #{sort_my_array_alphabetical(journalists_array)}\n\n"
+
+  print "Voici la liste de nos contacts triés par ordre de longueur :\n #{sort_my_array_by_handle_size(journalists_array)}\n\n"
+
+  puts "La position de notre contact @epenser dans notre liste de contacts est : #{find_position_of_contact(journalists_array)}\n\n"
+  
+  count_contacts_length(journalists_array)
+  
+  puts"\n"
 end
 
 
