@@ -34,7 +34,7 @@ def count_handles_with_length_5(journalists_array)
   return length_is_5_counter
 end
 
-# # ---q4
+# ---q4
 
 def how_many_start_with_caps(journalists_array, character_to_find)
   starts_with_caps_counter = 0
@@ -48,7 +48,13 @@ def how_many_start_with_caps(journalists_array, character_to_find)
   return starts_with_caps_counter
 end
 
+# --- q5
 
+def sort_my_array(journalists_array)
+  sorted_array = journalists_array.sort
+
+  return sorted_array
+end
 
 
 def perform
@@ -63,7 +69,7 @@ def perform
   puts find_shortest_handle(journalists_array)
   puts count_handles_with_length_5(journalists_array)
   puts how_many_start_with_caps(journalists_array, character_to_find)
-
+  print sort_my_array(journalists_array)
 end
 
 
