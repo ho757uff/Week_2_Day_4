@@ -10,7 +10,7 @@ end
 def find_shortest_handle(journalists_array)
   shortest_handle = journalists_array[1]
 
-  journalists_array.each do |i|
+  for i in journalists_array
     if shortest_handle.length > i.length
       shortest_handle = i
     end
@@ -25,7 +25,7 @@ end
 def count_handles_with_length_5(journalists_array)
   length_is_5_counter = 0
   
-  journalists_array.each do |i|
+  for i in journalists_array
     if i.length == 6
       length_is_5_counter += 1
     end
@@ -39,7 +39,7 @@ end
 def how_many_start_with_caps(journalists_array, character_to_find)
   starts_with_caps_counter = 0
 
-  journalists_array.each do |str|
+  for str in journalists_array
     if str.match(/(#{character_to_find}[A-Z])/)
       starts_with_caps_counter += 1
     end
@@ -50,11 +50,23 @@ end
 
 # --- q5
 
-def sort_my_array(journalists_array)
-  sorted_array = journalists_array.sort
-
-  return sorted_array
+def sort_my_array_alphabetical(journalists_array)
+  for str in journalists_array
+  sorted_array_alphabetical = journalists_array.sort
+  end
+  return sorted_array_alphabetical
 end
+
+
+# --- q6
+# def sort_my_array_by_handle_size(journalists_array)
+  
+
+  
+#   sorted_array_by_handle_size = temp_array
+
+#   return sorted_array_by_handle_size
+# end
 
 
 def perform
@@ -65,11 +77,13 @@ def perform
   # puts journalists_array
   # puts journalists_array[0].length
 
-  puts count_handles(journalists_array)
-  puts find_shortest_handle(journalists_array)
-  puts count_handles_with_length_5(journalists_array)
-  puts how_many_start_with_caps(journalists_array, character_to_find)
-  print sort_my_array(journalists_array)
+  puts "Il y a #{count_handles(journalists_array)} contacts dans notre array"
+  puts "Le contact le plus court dans notre array est : #{find_shortest_handle(journalists_array)}"
+  puts "Il y a #{count_handles_with_length_5(journalists_array)} contacts dont la longueur est égale à 5 caractères après le @"
+  puts "Il y a #{how_many_start_with_caps(journalists_array, character_to_find)} contacts qui ont un nom commençant par une majuscule après le @"
+  print "Voici la liste de nos contacts triés par ordre alphabétique : #{sort_my_array_alphabetical(journalists_array)}"
+  puts " "
+  # print sort_my_array_by_handle_size(journalists_array)
 end
 
 
